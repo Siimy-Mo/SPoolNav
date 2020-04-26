@@ -6,7 +6,7 @@
       <!-- 原动画平移对象 -->
 
       <div class="interface leftside">
-        <transition  >
+        <transition mode="out-in" enter-active-class="animated zoomIn" leave-active-class="animated zoomOut">
         <div class="working" v-if="isLogin">
           sign in interface
         </div>
@@ -114,7 +114,6 @@ export default {
   width: 100px;
   height: 50px;
   border-radius: 25px;
-  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 
