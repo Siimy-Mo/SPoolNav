@@ -12,10 +12,10 @@ const routes = [
     component: login
   },
   {
-    path: '/sky',
+    path: "/sky",
     name: "sky",
-    component: sky },
-
+    component: sky
+  }
 ];
 
 const router = new VueRouter({

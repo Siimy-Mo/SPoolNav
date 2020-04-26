@@ -1,8 +1,11 @@
 <template>
   <div class="stars">
-    <div v-for="(item, index) in starsCount" :key="index" class="star" ref="star">
-
-    </div>
+    <div
+      v-for="(item, index) in starsCount"
+      :key="index"
+      class="star"
+      ref="star"
+    ></div>
   </div>
 </template>
 
@@ -18,20 +21,17 @@ export default {
     let _this = this;
     let starArr = _this.$refs.star;
     starArr.forEach(item => {
-      var speed = 0.2 + (Math.random() * 1);
-      var thisDistance = _this.distance +( Math.random() * 300);
+      var speed = 0.2 + Math.random() * 1;
+      var thisDistance = _this.distance + Math.random() * 300;
       item.style.transformOrigin = `0 0 ${thisDistance}px`;
-      item.style.transform =
-        `translate3d(0,0,-${thisDistance}px) rotateY(${(Math.random() * 360)}deg) rotateX(${(Math.random() * -50)}deg) scale(${speed}, ${speed})`;
+      item.style.transform = `translate3d(0,0,-${thisDistance}px) rotateY(${Math.random() *
+        360}deg) rotateX(${Math.random() * -50}deg) scale(${speed}, ${speed})`;
     });
   }
-  
-
 };
 </script>
 
 <style lang="less" scoped>
-
 @keyframes rotate {
   0% {
     transform: perspective(400px) rotateZ(20deg) rotateX(-40deg) rotateY(0);

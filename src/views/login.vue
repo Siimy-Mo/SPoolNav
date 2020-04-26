@@ -1,57 +1,53 @@
 <template>
   <div class="container">
-    <sky></sky>Hellow, here is login part
-    <input id="beball" type="button" value="变球" />
+    <sky></sky>
 
     <div class="welcome">
       <!-- 原动画平移对象 -->
 
-      <div class="pinkbox">
-        <!-- 伸展 -->
-        <div class="renc">Login interface</div>
-
-        <!-- 折叠 -->
-        <a id="leftbutton">
-          <div class="ball nodisplay">sign in</div>
+      <div class="interface leftside">
+        <transition  >
+        <div class="working" v-if="isLogin">
+          sign in interface
+        </div>
+        <a id="wanna-signin" v-else @click="changeInterface">
+          <div class="notworking">
+            sign in
+          </div>
         </a>
+        </transition>
+      </div>
+
+      <div class="interface rightside">
+                <transition  mode="out-in">
+        <div class="working" v-if="!isLogin">
+          sign up interface
+        </div>
+
+
+        <a id="wanna-signup" v-else @click="changeInterface">
+          <div class="notworking">
+            sign up
+          </div>
+        </a>
+        </transition>
       </div>
       <!-- 注册按钮 -->
       <a id="rightbutton">
-        <div class="ball nodisplay">sign in</div>
+        <div class="ball nodisplay"></div>
       </a>
 
       <!-- 白板上的内容 -->
-      <div class="leftbox">leftbox</div>
-      <div class="rightbox">rightbox</div>
+      <div class="leftbox"></div>
+      <div class="rightbox"></div>
     </div>
   </div>
 </template>
 
 <script>
-import $ from "jquery";
+import "animate.css";
 import sky from "./sky.vue";
 //import func from "../../vue-temp/vue-editor-bridge";
-
-
-$(function() {
-  $("#beball").click(function() {
-    //   $('.pinkbox').css('transform', 'translateX(80%)');
-    $(".pinkbox").removeClass("renc");
-    $(".pinkbox").addClass("ball");
-
-    $(".renc").addClass("nodisplay");
-    $(".ball").removeClass("nodisplay");
-  });
-
-  $("#leftbutton").click(function() {
-    $(".pinkbox").removeClass("ball");
-    $(".pinkbox").addClass("renc");
-    //$('.pinkbox').css('transform', 'translateX(0%)');
-
-    $(".ball").addClass("nodisplay");
-    $(".renc").removeClass("nodisplay");
-  });
-});
 
 export default {
   name: "login",
@@ -60,10 +56,14 @@ export default {
   },
   data() {
     return {
-      flag: true
+      isLogin: false
     };
   },
-  methods: {},
+  methods: {
+    changeInterface() {
+      this.isLogin=!this.isLogin;
+    }
+  },
   components: {
     sky
   }
@@ -89,16 +89,36 @@ export default {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   //opacity: 50%;
 }
-.pinkbox {
+.interface {
   position: absolute;
   bottom: -50%;
-  left: 5%;
-  background: $icy-morn;
   border-radius: 10px;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease-in-out;
-  z-index: 1;
 }
+.rightside {
+  right: 5%;
+  background: $first-date;
+}
+.leftside {
+  left: 5%;
+  background: $icy-morn;
+}
+
+.working {
+  width: 320px;
+  height: 500px;
+  border-radius: 10px;
+}
+.notworking {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+
+
 .renc {
   width: 320px;
   height: 500px;
