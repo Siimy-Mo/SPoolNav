@@ -1,21 +1,17 @@
 <template>
   <div id="app">
-
-    <!-- <router-link to="/header">header</router-link>
-    <router-link to="/container">container</router-link> -->
     <router-view></router-view>
   </div>
 </template>
 
-<script>
-
-export default {
+<style lang="scss">
+// @import "@/css/global-color.scss";
+* {
+  transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-</script>
-
-<style>
 body {
-    background: radial-gradient(
+  // background:$peachy-dust;
+  background: radial-gradient(
     200% 100% at bottom center,
     #f7f7b6,
     $tropical-splash,
@@ -31,4 +27,7 @@ body {
   background-attachment: fixed;
   overflow: hidden;
 }
+
+
+
 </style>
