@@ -1,0 +1,49 @@
+<template>
+    <div>
+   <a href="test1.html">测试1</a><br/>
+   <a href="test2.html">测试2</a><br/>
+   <a href="test3.html">测试3</a><br/>
+   <a href="test4.html">测试4</a><br/>
+   <a href="test5.html">测试5</a><br/>
+   <input class="input1"/>获取焦点背景变红<br/>
+   <input class="input2"/>鼠标经过背景变红<br/>
+   <input class="input3"/>激活鼠标按下背景变红<br/>
+   <input class="input4" disabled="true"/>禁用背景变红<br>
+   <input class="input5" type="checkbox"/>选择边框变红
+    </div>
+</template>
+
+<script>
+    export default {
+        
+    }
+</script>
+
+<style scoped>
+        a:link{
+            color: gray;
+            text-decoration: none;
+        }
+        a:visited{
+            color: blue;
+        }
+        a:hover{
+            color: blue;
+        }
+        .input1:focus{
+            background: red;
+        }
+        .input2:hover{
+            background: red;
+        }
+        .input3:active{
+            background: red;
+        }
+        .input4:disabled{
+            background: red;
+        }
+        .input5:checked{
+            outline: 2px solid red;
+        }
+
+</style>
