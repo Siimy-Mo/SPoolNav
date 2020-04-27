@@ -15,7 +15,9 @@
           <transition appear appear-active-class="animated fadeIn">
             <form class="speeddown">
               <div class="input-field usernameinput">
-                <span>Icon</span>
+
+                <i class="el-icon-user-solid"></i>
+                
                 <input type="text" placeholder="Username" />
               </div>
 
@@ -88,6 +90,7 @@ import "animate.css";
 import sky from "./sky.vue";
 //import func from "../../vue-temp/vue-editor-bridge";
 import $ from "jquery";
+
 // import test from "./test";
 
 export default {
@@ -184,5 +187,18 @@ export default {
 }
 .speeddown {
   animation-duration: 2s;
+}
+.input-field {
+    height: 50px;
+  margin: 5px 10%;
+  border-radius: 5px;
+  background: white;
+
+
+}
+input {
+  border: 0;
+  font-size: 16px;
+  color: white;
 }
 </style>

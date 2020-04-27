@@ -7,7 +7,7 @@ module.exports = {
       sass: {
         prependData: `
         @import "@/css/global-color.scss";
-                `
+        `
       }
     }
   }
