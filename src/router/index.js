@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import sky from "../views/sky.vue";
 import login from "../views/login.vue";
+import page404 from "../views/404.vue";
 
 Vue.use(VueRouter);
 
@@ -15,6 +16,11 @@ const routes = [
     path: "/sky",
     name: "sky",
     component: sky
+  },
+  {
+    path:"/404",
+    name:"page404",
+    component:page404
   }
 ];
 

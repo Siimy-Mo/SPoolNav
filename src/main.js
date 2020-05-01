@@ -3,7 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import { Icon } from 'element-ui';
-import './plugins/element.js'
+import './plugins/element.js';
 
 Vue.component(Icon.name, Icon);
 
