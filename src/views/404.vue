@@ -21,12 +21,18 @@ export default {
       circlesCount: 12,
       distance: 400,
       space: 60,
-      is: false
+      is: false,
+      colorset: [
+        { color1: "#a4b7ee", color2: "#5fc7df" }, // Light Pastel Purple to Blue Radiance
+        { color1: "#de7881", color2: "#d89be2" }, // truelove and Pale Plum
+        { color1: "#a5e6df", color2: "#edafba" } // Spinnaker and Spinnaker
+      ]
     };
   },
   mounted() {
     document.body.style.background = "#fff";
     this.initial_position();
+    this.initial_color();
   },
   methods: {
     initial_position() {
@@ -39,9 +45,12 @@ export default {
       circlesArr.forEach(item => {
         var size = 30 + Math.random() * 100;
         var during = 1 + Math.random() * 3;
+        var colors = this.initial_color();
         item.style.width = `${size}px`;
         item.style.height = `${size}px`;
         item.style.right = `${positionx}px`;
+
+        item.style.background = `linear-gradient(to bottom, ${colors.color1}, ${colors.color2})`;
         let totop = maxH - size;
         space = _this.space / 2 - Math.random() * _this.space;
         positionx = positionx + size + space + Math.random() * 5;
@@ -53,7 +62,10 @@ export default {
         });
       });
     },
-    initial_color() {}
+    initial_color() {
+      let index = Math.floor(Math.random() * 3);
+      return this.colorset[index];
+    }
   }
 };
 </script>
