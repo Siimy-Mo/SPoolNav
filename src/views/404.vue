@@ -60,6 +60,11 @@ export default {
           repeat: -1,
           yoyo: true
         });
+        new TweenMax(item, during*0.6, {
+          opacity: Math.random(),
+          repeat: -1,
+          yoyo: true
+        });
       });
     },
     initial_color() {
@@ -90,9 +95,11 @@ export default {
 
 .circles {
   background: $first-date;
+
   position: absolute;
   bottom: 10px;
   border-radius: 100%;
+  opacity: 1;
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 3;
 }
