@@ -26,30 +26,34 @@ export default {
   },
   mounted() {
     document.body.style.background = "#fff";
-
-    let _this = this;
-    let circlesArr = _this.$refs.circles;
-    console.log(this.$refs.contain__inner);
-    let positionx = 12;
-    let space;
-    let maxH = Math.floor(innerHeight * 0.65) - 10;
-    let maxW = Math.floor(innerWidth * 0.5) - 130;
-    circlesArr.forEach(item => {
-      var size = 30 + Math.random() * 100;
-      var during = 1 + Math.random() * 3;
-      item.style.width = `${size}px`;
-      item.style.height = `${size}px`;
-      item.style.right = `${positionx}px`;
-      let totop = maxH - size;
-      space = _this.space / 2 - Math.random() * _this.space;
-      positionx = positionx + size + space + Math.random() * 5;
-      if (positionx > maxW) positionx = positionx - Math.random() * 300;
-      new TweenMax(item, during, {
-        y: -totop,
-        repeat: -1,
-        yoyo: true
+    this.initial_position();
+  },
+  methods: {
+    initial_position() {
+      let _this = this;
+      let circlesArr = _this.$refs.circles;
+      let positionx = 12;
+      let space;
+      let maxH = Math.floor(innerHeight * 0.65) - 10;
+      let maxW = Math.floor(innerWidth * 0.5) - 130;
+      circlesArr.forEach(item => {
+        var size = 30 + Math.random() * 100;
+        var during = 1 + Math.random() * 3;
+        item.style.width = `${size}px`;
+        item.style.height = `${size}px`;
+        item.style.right = `${positionx}px`;
+        let totop = maxH - size;
+        space = _this.space / 2 - Math.random() * _this.space;
+        positionx = positionx + size + space + Math.random() * 5;
+        if (positionx > maxW) positionx = positionx - Math.random() * 300;
+        new TweenMax(item, during, {
+          y: -totop,
+          repeat: -1,
+          yoyo: true
+        });
       });
-    });
+    },
+    initial_color() {}
   }
 };
 </script>
@@ -61,9 +65,6 @@ export default {
   overflow: hidden;
 
   &_inner {
-    // background: yellowgreen;
-    // display: flex;
-    // align-items: flex-end;
     position: relative;
     top: 20%;
     left: 25%;
@@ -83,5 +84,4 @@ export default {
   box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
   z-index: 3;
 }
-
 </style>
