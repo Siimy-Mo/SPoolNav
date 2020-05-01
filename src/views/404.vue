@@ -24,7 +24,7 @@ export default {
       is: false,
       colorset: [
         { color1: "#a4b7ee", color2: "#5fc7df" }, // Light Pastel Purple to Blue Radiance
-        { color1: "#de7881", color2: "#d89be2" }, // truelove and Pale Plum
+        // { color1: "#de7881", color2: "#d89be2" }, // truelove and Pale Plum
         { color1: "#a5e6df", color2: "#edafba" } // Spinnaker and Spinnaker
       ]
     };
@@ -63,7 +63,7 @@ export default {
       });
     },
     initial_color() {
-      let index = Math.floor(Math.random() * 3);
+      let index = Math.floor(Math.random() * 2);
       return this.colorset[index];
     }
   }
